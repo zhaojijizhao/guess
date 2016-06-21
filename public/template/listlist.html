@@ -1,0 +1,16 @@
+<ul class="guess-list">
+	<%_.each(list,function(v,k){%>
+		<li>
+			<h2 class="guess-title"><%=v.name%></h2>
+			<ul class="problem-list">
+				<%_.each(v.list,function(v2,k2){%>
+					<li>
+						<div class="problem-title"><%=v2.name%></div>
+						<div class="problem-sub"><%=v2.date%></div>
+						<a href="<%=v2.link%>">打开</a>
+					</li>
+				<%})%>
+			</ul>
+		</li>
+	<%})%>
+</ul>

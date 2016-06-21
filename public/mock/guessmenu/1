@@ -1,0 +1,30 @@
+{
+	"name":"体育赛事",
+	"list":[
+		{
+			"name":"足球天地",
+			"link":"/mobile/guesslist/1",
+			"off":false
+		},
+		{
+			"name":"篮球世界",
+			"link":"/mobile/guesslist/2",
+			"off":false
+		},
+		{
+			"name":"急速赛车",
+			"link":"/mobile/guesslist/3",
+			"off":false
+		},
+		{
+			"name":"对抗搏击",
+			"link":"/mobile/guesslist/4",
+			"off":false
+		},
+		{
+			"name":"奥运风云",
+			"link":"/mobile/guesslist/5",
+			"off":false
+		}
+	]
+}

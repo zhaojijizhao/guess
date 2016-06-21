@@ -1,0 +1,5 @@
+<div class="menu-list">
+	<%_.each(list,function(v,k){%>
+		<a href="<%=v.link%>" <%if(v.off){%>class="disable"<%}%> ><%=v.name%></a>
+	<%})%>
+</div>

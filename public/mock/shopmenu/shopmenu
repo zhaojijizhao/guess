@@ -1,0 +1,30 @@
+{
+	"name":"精彩生活",
+	"list":[
+		{
+			"name":"个人信息与记录",
+			"link":"/mobile/shopmenu/1",
+			"off":false
+		},
+		{
+			"name":"团购",
+			"link":"/mobile/shopmenu/2",
+			"off":false
+		},
+		{
+			"name":"电商",
+			"link":"/mobile/shopmenu/3",
+			"off":false
+		},
+		{
+			"name":"直销产品",
+			"link":"/mobile/shopmenu/4",
+			"off":true
+		},
+		{
+			"name":"用户交流区",
+			"link":"/mobile/shopmenu/5",
+			"off":false
+		}
+	]
+}

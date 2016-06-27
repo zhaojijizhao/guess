@@ -7,17 +7,17 @@
 				{
 					"name":"足总杯冠军",
 					"date":"2015.8.20",
-					"link":"/mobile/guessdetail/1"
+					"link":"./guessdetail.html?id=1"
 				},
 				{
 					"name":"英超冠军",
 					"date":"2015.9.15",
-					"link":"/mobile/guessdetail/2"
+					"link":"./guessdetail.html?id=2"
 				},
 				{
 					"name":"英冠联赛冠军",
 					"date":"2015.7.22",
-					"link":"/mobile/guessdetail/3"
+					"link":"./guessdetail.html?id=3"
 				}
 			]
 		},
@@ -27,17 +27,17 @@
 				{
 					"name":"西班牙国家杯冠军",
 					"date":"2015.9.10",
-					"link":"/mobile/guessdetail/4"
+					"link":"./guessdetail.html?id=4"
 				},
 				{
 					"name":"西甲联赛冠军",
 					"date":"2015.5.30",
-					"link":"/mobile/guessdetail/5"
+					"link":"./guessdetail.html?id=5"
 				},
 				{
 					"name":"西乙联赛冠军",
 					"date":"2015.8.13",
-					"link":"/mobile/guessdetail/6"
+					"link":"./guessdetail.html?id=6"
 				}
 			]
 		},
@@ -47,17 +47,17 @@
 				{
 					"name":"意大利国家杯冠军",
 					"date":"2015.9.22",
-					"link":"/mobile/guessdetail/7"
+					"link":"./guessdetail.html?id=7"
 				},
 				{
 					"name":"意甲联赛冠军",
 					"date":"2015.6.18",
-					"link":"/mobile/guessdetail/8"
+					"link":"./guessdetail.html?id=8"
 				},
 				{
 					"name":"意乙联赛冠军",
 					"date":"2015.9.16",
-					"link":"/mobile/guessdetail/9"
+					"link":"./guessdetail.html?id=9"
 				}
 			]
 		}

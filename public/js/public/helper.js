@@ -14,19 +14,28 @@ define(['jquery','underscore','backbone'],
 			}
 			return env;
 		}
-		function getBaseUrl(){
+		function getBaseUrl(str){
 			switch(getEnv()){
 				default:
 				case 'dev':
-					return '/mock/'
+					return '/mock/' + str;
 					break;
 				case 'test':
-					return '/mock/'
+					return '/mock/' + str;
 					break;
 				case 'product':
-					return 'http://120.25.84.140:3000/mock/'
+					return 'http://120.25.84.140:3000/mock/' + str;
 					break;
 			}
+		}
+		function getQueryParam(){
+			var query = location.search.substr(1),
+				queryArr = query.split("&"),
+				result = {};
+			for(var i in queryArr){
+				result[queryArr[i].split('=')[0]]=queryArr[i].split('=')[1];
+			}
+			return result;
 		}
 		var helper={
 			islogin:function(){
@@ -52,7 +61,8 @@ define(['jquery','underscore','backbone'],
 						.removeClass('on');
 				});
 			},	
-			baseUrl:getBaseUrl()
+			baseUrl:getBaseUrl,
+			queryParam:getQueryParam
 		};
 		return helper;
 });

@@ -1,7 +1,7 @@
 define([],function(){
 	function setRequirejs(){
 		requirejs.config({
-			baseUrl:"/",
+			baseUrl:"../",
 			paths:{
 				jquery:"lib/jquery",
 				underscore:"lib/underscore",

@@ -1,4 +1,4 @@
-require(['/js/public/base.js'],function(Base){
+require(['../js/public/base.js'],function(Base){
 	Base.setRequirejs();
 	require(['jquery','underscore','backbone','helper','text!/template/detail.html'],
 		function($,_,Backbone,Helper,detailTemplate){
@@ -11,8 +11,15 @@ require(['/js/public/base.js'],function(Base){
 				},
 				render:function(){
 					var self = this;
+					var url = "";
+					var listId = Helper.queryParam().id;
+					if(listId){
+						url = Helper.baseUrl('guessdetail/' + listId);
+					}else{
+						url = Helper.baseUrl("guessdetail/guessdetail");
+					}
 					$.ajax({
-						url: Helper.baseUrl + 'guessdetail/' + $("#detailid").val(),
+						url: url,
 						type: 'get',
 						dataType: 'json',
 						success:function(data){
@@ -54,14 +61,14 @@ require(['/js/public/base.js'],function(Base){
 						// 	dataType: 'json',
 						// 	success:function(data){
 						// 		alert('竞猜成功！');
-						// 		location.href='/mobile/guessmenu';
+						// 		location.href='./guessmenu.html';
 						// 	},
 						// 	error:function(error){
 						// 		alert('网络不畅，请刷新重试');
 						// 	}
 						// });
 						alert('竞猜成功！');
-						location.href='/mobile/guessmenu';
+						location.href='./guessmenu.html';
 					});
 				}
 			});

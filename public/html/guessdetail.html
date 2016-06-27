@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-	<title>17kc8</title>
+	<title>17jc8</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 	<meta name="renderer" content="webkit" />
@@ -20,7 +20,7 @@
 	<meta name="browsermode" content="application">
 	<meta name="x5-page-mode" content="app">
 	<meta name="msapplication-tap-highlight" content="no">
-	<link rel="stylesheet" href="/css/mobile/common.css">
+	<link rel="stylesheet" href="../css/mobile/common.css">
 </head>
 <body>
 	<div class="nav">
@@ -28,20 +28,16 @@
 			<i class="link-btn icon"></i>
 			<div class="mask"></div>
 			<div class="links">
-				<a href="/mobile/guessmenu">热门竞猜</a>
-				<a href="/mobile/shopmenu">精彩生活</a>
+				<a href="./guessmenu.html">热门竞猜</a>
+				<a href="./shopmenu.html">精彩生活</a>
 				<a href="#">账户信息</a>
 			</div>
 		</div>
 		<div class="title">一起竞猜吧</div>
 		<a class="profile-link" href="#"><i class="icon"></i></a>
 	</div>
-	<input type="hidden" id="detailid" value="">
 	<div class="main" id="main">
 	</div>
-	<script type="text/javascript">
-		document.getElementById("listid").setAttribute('value',location.pathname.substr(location.pathname.lastIndexOf('/')+1));
-	</script>
-	<script type="text/javascript" defer async="true" data-main="/js/mobile/guessdetail.js" src="/lib/require.js"></script>
+	<script type="text/javascript" defer async="true" data-main="../js/mobile/guessdetail.js" src="../lib/require.js"></script>
 </body>
 </html>

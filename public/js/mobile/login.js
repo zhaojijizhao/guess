@@ -1,4 +1,4 @@
-require(['/js/public/base.js'],function(Base){
+require(['../js/public/base.js'],function(Base){
 	Base.setRequirejs();
 	require(['jquery','underscore','backbone','helper'],
 		function($,_,Backbone,Helper){
@@ -14,7 +14,23 @@ require(['/js/public/base.js'],function(Base){
 				},
 				btn:function(e){
 					e.preventDefault();
-					location.href="/mobile/guessmenu";
+					var url = Helper.baseUrl('login');
+					$.ajax({
+						url: url,
+						type: 'post',
+						data: {
+							cell:$("#cell").val(),
+							password:$('#password').val()
+						},
+						dataType: 'json',
+						success:function(data){
+							alert('登录成功');
+							location.href="./guessmenu.html";
+						},
+						error:function(error){
+							alert('登录失败，请重试');
+						}
+					});
 				}
 			});
 			var page = new view();

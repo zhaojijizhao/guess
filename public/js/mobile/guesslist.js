@@ -1,4 +1,4 @@
-require(['/js/public/base.js'],function(Base){
+require(['../js/public/base.js'],function(Base){
 	Base.setRequirejs();
 	require(['jquery','underscore','backbone','helper','text!/template/listlist.html'],
 		function($,_,Backbone,Helper,listListTemplate){
@@ -11,8 +11,15 @@ require(['/js/public/base.js'],function(Base){
 				},
 				render:function(){
 					var self = this;
+					var url = "";
+					var listId = Helper.queryParam().id;
+					if(listId){
+						url = Helper.baseUrl('guesslist/' + listId);
+					}else{
+						url = Helper.baseUrl("guesslist/guesslist");
+					}
 					$.ajax({
-						url: Helper.baseUrl + 'guesslist/' + $("#listid").val(),
+						url: url,
 						type: 'get',
 						dataType: 'json',
 						success:function(data){

@@ -1,4 +1,4 @@
-require(['/js/public/base.js'],function(Base){
+require(['../js/public/base.js'],function(Base){
 	Base.setRequirejs();
 	require(['jquery','underscore','backbone','helper','text!/template/menulist.html'],
 		function($,_,Backbone,Helper,menuListTemplate){
@@ -11,11 +11,12 @@ require(['/js/public/base.js'],function(Base){
 				},
 				render:function(){
 					var self = this;
-					var url = Helper.baseUrl + 'guessmenu';
-					if(!!$("#listid").val().trim()){
-						url += '/'+ $("#listid").val();
+					var url = "";
+					var listId = Helper.queryParam().id;
+					if(listId){
+						url = Helper.baseUrl('guessmenu/' + listId);
 					}else{
-						url += '/guessmenu';
+						url = Helper.baseUrl("guessmenu/guessmenu");
 					}
 					$.ajax({
 						url: url,

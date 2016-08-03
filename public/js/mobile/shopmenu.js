@@ -16,7 +16,7 @@ require(['../js/public/base.js'],function(Base){
 					if(listId){
 						url = Helper.baseUrl('shopmenu/' + listId);
 					}else{
-						url = Helper.baseUrl("shopmenu/shopmenu");
+						url = Helper.baseUrl("shopmenu");
 					}
 					$.ajax({
 						url: url,

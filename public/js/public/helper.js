@@ -12,19 +12,25 @@ define(['jquery','underscore','backbone'],
 			if(host.indexOf(":")<0){
 				env = 'product';
 			}
+			if(location.href.indexOf('file')>-1){
+				env = 'static'
+			}
 			return env;
 		}
 		function getBaseUrl(str){
 			switch(getEnv()){
 				default:
+				case 'static':
+					return 'http://localhost:3000/api/' + str;
+					break;
 				case 'dev':
 					return '/mock/' + str;
 					break;
 				case 'test':
-					return '/mock/' + str;
+					return '/api/' + str;
 					break;
 				case 'product':
-					return 'http://120.25.84.140:3000/mock/' + str;
+					return '/api/' + str;
 					break;
 			}
 		}

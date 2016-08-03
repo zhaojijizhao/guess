@@ -16,7 +16,7 @@ require(['../js/public/base.js'],function(Base){
 					if(listId){
 						url = Helper.baseUrl('guessdetail/' + listId);
 					}else{
-						url = Helper.baseUrl("guessdetail/guessdetail");
+						url = Helper.baseUrl("guessdetail");
 					}
 					$.ajax({
 						url: url,
@@ -50,23 +50,23 @@ require(['../js/public/base.js'],function(Base){
 					});
 					this.$el.find("#J_submit").on('click',function(e){
 						e.preventDefault();
-						// var data = {
-						// 	option: $("#J_area li.on").attr("data-id"),
-						// 	pit: parseInt($("#pit").val());
-						// }
-						// $.ajax({
-						// 	url: Helper.baseUrl + 'guessdetail/' + $("detailid").val(),
-						// 	type: 'post',
-						//  data: data,
-						// 	dataType: 'json',
-						// 	success:function(data){
-						// 		alert('竞猜成功！');
-						// 		location.href='./guessmenu.html';
-						// 	},
-						// 	error:function(error){
-						// 		alert('网络不畅，请刷新重试');
-						// 	}
-						// });
+						var data = {
+							option: $("#J_area li.on").attr("data-id"),
+							pit: parseInt($("#pit").val());
+						}
+						$.ajax({
+							url: Helper.baseUrl + 'guess/' + $("detailid").val(),
+							type: 'post',
+						 data: data,
+							dataType: 'json',
+							success:function(data){
+								alert('竞猜成功！');
+								location.href='./guessmenu.html';
+							},
+							error:function(error){
+								alert('网络不畅，请刷新重试');
+							}
+						});
 						alert('竞猜成功！');
 						location.href='./guessmenu.html';
 					});

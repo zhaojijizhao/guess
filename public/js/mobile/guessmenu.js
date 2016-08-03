@@ -16,7 +16,7 @@ require(['../js/public/base.js'],function(Base){
 					if(listId){
 						url = Helper.baseUrl('guessmenu/' + listId);
 					}else{
-						url = Helper.baseUrl("guessmenu/guessmenu");
+						url = Helper.baseUrl("guessmenu");
 					}
 					$.ajax({
 						url: url,

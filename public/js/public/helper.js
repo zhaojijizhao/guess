@@ -28,6 +28,7 @@ define(['jquery','underscore','backbone'],
 					break;
 				case 'test':
 					return '/api/' + str;
+					//return '/mock/' + str + '.json';
 					break;
 				case 'product':
 					return '/api/' + str;
@@ -66,7 +67,7 @@ define(['jquery','underscore','backbone'],
 					$(this).add($(this).siblings('.links'))
 						.removeClass('on');
 				});
-			},	
+			},
 			baseUrl:getBaseUrl,
 			queryParam:getQueryParam
 		};

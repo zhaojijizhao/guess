@@ -1,5 +1,9 @@
 <div class="menu-list">
 	<%_.each(list,function(v,k){%>
-		<a href="<%=v.link%>" <%if(v.off){%>class="disable"<%}%> ><%=v.name%></a>
+    <%if(!v.pid){%>
+  		<a href="<%='./guessmenu.html?id='+v.id%>" <%if(v.off){%>class="disable"<%}%> ><%=v.name%></a>
+    <%}else{%>
+      <a href="<%='./guesslist.html?id='+v.id%>" <%if(v.off){%>class="disable"<%}%> ><%=v.name%></a>
+    <%}%>
 	<%})%>
 </div>

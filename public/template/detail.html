@@ -1,8 +1,9 @@
 <div class="detail">
 	<div class="detail-info">
+		<input type="hidden" id="detailid" value="<%=data.id%>" />
 		<div class="first"><%=data.name%></div>
 		<div class="second">第<span><%=data.round%></span>轮</div>
-		<div class="third"><%=data.date%></div>
+		<div class="third"><%=new Date(data.updated_at).toLocaleDateString()%></div>
 	</div>
 	<ul class="detail-data">
 		<li>
@@ -11,21 +12,21 @@
 		</li>
 		<li>
 			<div class="tip">有效人次</div>
-			<div class="number"><%=data.times%></div>
+			<div class="number"><%=data.time_limits%></div>
 		</li>
 		<li>
 			<div class="tip">奖池总点数</div>
-			<div class="number"><%=data.totlpoint%></div>
+			<div class="number"><%=data.total_points%></div>
 		</li>
 	</ul>
 	<ul class="detail-state">
 		<li>
 			<div class="label">状态</div>
-			<div class="content"><%=data.state%></div>
+			<div class="content"><%=data.status%></div>
 		</li>
 		<li>
 			<div class="label">截止时间</div>
-			<div class="content"><%=data.date%></div>
+			<div class="content"><%=new Date(data.expired_at).toLocaleDateString()%></div>
 		</li>
 	</ul>
 	<div class="detail-intro">
@@ -38,13 +39,13 @@
 	</div>
 	<form class="detail-guess" id="J_guess">
 		<div class="option">
-			<div class="title"><%=data.guess.question%></div>
+			<div class="title"><%=data.question%></div>
 			<div class="choose">
 				<i class="left-btn icon"></i>
 				<i class="right-btn icon"></i>
 				<div class="area" id="J_area">
 					<ul>
-						<%_.each(data.guess.options,function(v,k){%>
+						<%_.each(data.options,function(v,k){%>
 							<li data-id="<%=v.id%>" class="<%if(k===0){%>on<%}%>" ><%=v.name%></li>
 						<%})%>
 					</ul>

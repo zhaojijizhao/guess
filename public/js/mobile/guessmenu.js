@@ -23,7 +23,7 @@ require(['../js/public/base.js'],function(Base){
 						type: 'get',
 						dataType: 'json',
 						success:function(data){
-							self.$el.html(_.template(menuListTemplate)(data));
+							self.$el.html(_.template(menuListTemplate)(data.guessmenu));
 						},
 						error:function(error){
 							alert('网络不畅，请刷新重试');

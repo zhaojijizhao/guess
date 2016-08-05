@@ -28,18 +28,24 @@ require(['../js/public/base.js'],function(Base){
 					if(!this.vertify()){
 						return false;
 					}
-					var url = Helper.baseUrl('sign');
+					var url = Helper.baseUrl('sign?phone=' + $("#cell").val() +'&password='+$('#password').val());
 					$.ajax({
 						url: url,
 						type: 'post',
-						data: {
-							cell:$("#cell").val(),
-							password:$('#password').val()
-						},
+						// data: {
+						// 	phone:$("#cell").val(),
+						// 	password:$('#password').val()
+						// },
 						dataType: 'json',
 						success:function(data){
-							alert('注册成功');
-							location.href="./guessmenu.html";
+							if(data && data.code == 200){
+								data.user.token = data.token;
+								Helper.setlogin(data.user);
+								alert('注册成功');
+								location.href="./guessmenu.html";
+							}else{
+								alert('注册失败'+(data.msg?data.msg:''));
+							}
 						},
 						error:function(error){
 							alert('注册失败，请重试');

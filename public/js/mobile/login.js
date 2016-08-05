@@ -14,18 +14,24 @@ require(['../js/public/base.js'],function(Base){
 				},
 				btn:function(e){
 					e.preventDefault();
-					var url = Helper.baseUrl('login');
+					var url = Helper.baseUrl('login?phone=' + $("#cell").val() +'&password='+$('#password').val());
 					$.ajax({
 						url: url,
 						type: 'post',
-						data: {
-							cell:$("#cell").val(),
-							password:$('#password').val()
-						},
+						// data: {
+						// 	phone:$("#cell").val(),
+						// 	password:$('#password').val()
+						// },
 						dataType: 'json',
 						success:function(data){
-							alert('登录成功');
-							location.href="./guessmenu.html";
+							if(data && data.code == 200){
+								data.user.token = data.token;
+								Helper.setlogin(data.user);
+								alert('登录成功');
+								location.href="./guessmenu.html";
+							}else{
+								alert('登陆失败'+(data.msg?data.msg:''));
+							}
 						},
 						error:function(error){
 							alert('登录失败，请重试');

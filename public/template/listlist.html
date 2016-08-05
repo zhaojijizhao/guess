@@ -1,4 +1,4 @@
-<ul class="guess-list">
+<!-- <ul class="guess-list">
 	<%_.each(list,function(v,k){%>
 		<li>
 			<h2 class="guess-title"><%=v.name%></h2>
@@ -7,10 +7,24 @@
 					<li>
 						<div class="problem-title"><%=v2.name%></div>
 						<div class="problem-sub"><%=v2.date%></div>
-						<a href="<%=v2.link%>">打开</a>
+						<a href="<%='./guessdetail.html'+v2.id%>">打开</a>
 					</li>
 				<%})%>
 			</ul>
 		</li>
 	<%})%>
+</ul> -->
+<ul class="guess-list">
+	<li>
+		<h2 class="guess-title">竞猜列表</h2>
+		<ul class="problem-list">
+			<%_.each(list,function(v,k){%>
+				<li>
+					<div class="problem-title"><%=v.name%></div>
+					<div class="problem-sub"><%=v.date%></div>
+					<a href="<%='./guessdetail.html?id='+v.id%>">打开</a>
+				</li>
+			<%})%>
+		</ul>
+	</li>
 </ul>

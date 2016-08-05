@@ -1,0 +1,14 @@
+{
+  "code": 200,
+  "msg": "登陆成功",
+  "user": {
+    "id": 90,
+    "name": "auto",
+    "email": null,
+    "phone": "11111111111",
+    "last_login": null,
+    "created_at": "2016-08-05T06:22:52.000Z",
+    "updated_at": "2016-08-05T06:22:52.000Z"
+  },
+  "token": "faa12fe1435504acbdfe14b297b730c6"
+}

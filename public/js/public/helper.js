@@ -28,7 +28,7 @@ define(['jquery','underscore','backbone'],
 					break;
 				case 'test':
 					return '/api/' + str;
-					//return '/mock/' + str + '.json';
+					// return '/mock/' + str.split('?',2)[0] + '.json';
 					break;
 				case 'product':
 					return '/api/' + str;

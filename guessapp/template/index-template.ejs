@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <meta name="description" content=""/>
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+  <% if (htmlWebpackPlugin.options.env !== 'dev') { %>
+  <link href="./static/common.css" rel="stylesheet">
+  <link href="./static/<%= htmlWebpackPlugin.options.chunks[0] %>.css" rel="stylesheet">
+  <% } %>
+</head>
+<body ontouchstart>
+  <div id="app"></div>
+  <script type="text/javascript" src="./static/common.js"></script>
+  <script type="text/javascript" src="./static/<%= htmlWebpackPlugin.options.chunks[0] %>.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+@import "_var.scss";
+@import "../../common/_common.scss";
+
+.toast-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  .content {
+    font-size: rem(14);
+    padding: rem(10);
+    border-radius: 5px;
+    background: #000;
+    color: #fff;
+    max-width: 90%;
+  }
+}
+
+.toast-anim-transition {
+  transition: all .3s ease;
+  opacity: 1;
+}
+
+.toast-anim-enter, .toast-anim-leave {
+  opacity: 0;
+}
+

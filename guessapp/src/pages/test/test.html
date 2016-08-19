@@ -1,0 +1,33 @@
+<main @touchend="onTouchEnd">
+  <pull-refresh @trigger-refresh="onRefresh">
+    <article>Hello World</article>
+    <button class="dp-button test" @click="showUA()">DPApp</button>
+    <h1>Fixed Column Grid</h1>
+    <flex-grid :columns="3">
+      <flex-item v-for="item in items">{{item.text}}</flex-item>
+    </flex-grid>
+
+    <swiper class="my-swiper">
+      <swiper-item v-for="slide in swiperData">
+        <a class="item-template">
+          <span class="title">{{slide.link}}</span>
+        </a>
+      </swiper-item>
+    </swiper>
+    <div v-for="num in nums">
+      {{num}}
+    </div>
+
+    <h1>Fully Responsive Grid</h1>
+    <!--<flex-grid id="grid2">-->
+      <!--<flex-item>Item 1</flex-item>-->
+      <!--<flex-item>Item 2</flex-item>-->
+      <!--<flex-item>Item 3</flex-item>-->
+      <!--<flex-item>Item 4</flex-item>-->
+      <!--<flex-item>Item 5</flex-item>-->
+      <!--<flex-item>Item 6</flex-item>-->
+      <!--<flex-item>Item 7</flex-item>-->
+      <!--<flex-item>Item 8</flex-item>-->
+    <!--</flex-grid>-->
+  </pull-refresh>
+</main>

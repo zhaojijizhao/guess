@@ -1,0 +1,4 @@
+node_modules/**
+neurons/**
+dist/**
+vendor/**

@@ -1,0 +1,19 @@
+<div class="pop" v-show="maskShow"></div>
+<div class="guess">
+    <div class="left" id="left">
+        <form>
+            <div class="inline" id="inline">
+                <span v-for="(key,option) in options">
+                    <input type="text" v-model="option" placeholder="请输入选项" />
+                </span>
+            </div>
+            <button id="reset" @click="reset" >重置</button>
+            <button id="add" @click="add" >增加选项</button>
+            <button id="start" @click="start" >开始抽选</button>
+        </form>
+
+    </div>
+    <div class="right" id="right">
+        <span></span>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "build": "npm run build",
+    "postpublish": ""
+  },
+  "dist": "./dist",
+  "env": "dev",
+  "urlPrefix": "./",
+  "static-src": "static"
+}

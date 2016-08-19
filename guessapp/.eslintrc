@@ -1,0 +1,37 @@
+{
+  "extends": "eslint-config-hfe",
+  "globals": {
+    "Vue": true,
+    "KNB": true,
+    "mta": true,
+    "__ENV__": true,
+    "__LOCAL_SERVER__": true,
+    "__VERSION__": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "rules": {
+    "strict": 0,
+    "no-extend-native": 0,
+    "curly": 0,
+    "indent": [2, 2, { "SwitchCase": 1 }],
+    "no-new": 0,
+    "space-before-function-paren": 0,
+    "spaced-comment": 0,
+    "semi": 0,
+    "quotes": 0,
+    "eqeqeq": 0,
+    "no-trailing-spaces": 0,
+    "no-multiple-empty-lines": 0,
+    "comma-dangle": 0,
+    "semi-spacing": 0,
+    "no-unused-vars": 0,
+    "eol-last": 0,
+    "padded-blocks": 0,
+    "no-multi-spaces": 0,
+    "comma-style": 0,
+    "block-spacing": 0,
+    "space-in-parens": 0
+  }
+}

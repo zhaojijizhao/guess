@@ -1,0 +1,45 @@
+@import "_var.scss";
+@import "../../common/_common.scss";
+
+html, body, main, #app {
+  height: 100%;
+  user-select: none;
+}
+
+article {
+  color: $primary-color;
+}
+
+.test {
+  font-size: rem(12);
+}
+
+.my-swiper {
+  height: 100px;
+  .item-template {
+    margin: auto;
+  }
+}
+
+
+
+
+// Float based grid
+.grid {
+  &::after {
+    content: ' ';
+    display: table;
+    clear: both;
+  }
+
+  .grid-item {
+    float: left;
+    width: 33.3%
+  }
+}
+
+#grid2 .flex-item {
+  flex: 0 0 80px;
+  width: 80px;
+}
+

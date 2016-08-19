@@ -1,0 +1,36 @@
+.layout-row {
+  display: flex;
+}
+
+.layout-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-wrap {
+  flex-wrap: wrap;
+}
+
+@each $p, $q in (start, flex-start), center, (end, flex-end), space-between, space-around {
+  .layout-m-align--#{$p} {
+    @if $q == null {
+      justify-content: #{$p};
+    } @else {
+      justify-content: #{$q};
+    }
+  }
+}
+
+@each $p, $q in (start, flex-start), center, (end, flex-end), baseline, stretch {
+  .layout-c-align--#{$p} {
+    @if $q == null {
+      align-items: #{$p};
+    } @else {
+      align-items: #{$q};
+    }
+  }
+}
+
+.layout-flex {
+  flex: 1;
+}

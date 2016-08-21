@@ -1,0 +1,15 @@
+<div class="guess form">
+  <div class="inputline">
+    <label for="name">姓名</label>
+    <input type="text" id="name" v-model="name" placeholder="请输入用户名" />
+  </div>
+  <div class="inputline">
+    <label for="name">密码</label>
+    <input type="password" v-model="password" placeholder="请输入密码" />
+  </div>
+  <div class="inputline">
+    <label for="name">确认密码</label>
+    <input type="password" v-model="check" placeholder="请确认密码" />
+  </div>
+  <button @click="confirm" >确认</button>
+</div>

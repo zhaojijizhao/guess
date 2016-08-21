@@ -1,6 +1,6 @@
-require('font-awesome/css/font-awesome.css');
 require('./main.scss');
 require('./polyfill');
+require('./font-awesome.css');
 
 var utils = require('./utils')
 var FastClick = require('fastclick');
@@ -15,28 +15,16 @@ window.onunhandledrejection = function (rejection) {
     console.error(rejection.promise);
 };
 
-utils.setupMTStyleForTesting();
-
-var api = require('axios').create({
-  baseURL: utils.APIPrefix(),
-  withCredentials: true
-});
-api.interceptors.response.use(function (resp) {
-  if (resp.data.code != null) {
-    if (resp.data.code == 200)
-      return resp.data;
-    else {
-      var error = new Error(resp.data.msg);
-      error.code = resp.data.code;
-      throw error;
-    }
-  } else
-    return resp;
-}, function (e) {
-  throw e;
-});
+var reqwest = require('reqwest');
+( _reqwest => {
+  reqwest = ( ...args ) => {
+    return new Promise(function (resolve, reject) {
+      _reqwest( ...args ).then( resolve, reject );
+    });
+  };
+} )( reqwest );
 
 module.exports = {
-  api: api,
+  reqwest: reqwest,
   utils: utils
 };

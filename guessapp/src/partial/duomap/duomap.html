@@ -1,0 +1,20 @@
+<div class="guess">
+  <div id="allmap" class="map"></div>
+  <ul class="userlist">
+    <li v-for="user in users">
+      <img :src="user.img" />{{user.name}}<input type="checkbox" :value="user.id" v-model="choosed"/>
+    </li>
+  </ul>
+  <div class="choose left">
+    <form>
+      <div class="inline" id="inline">
+          <span v-for="(key,option) in options" track-by="$index" :class="{on:option.hilight}">
+              <input type="text" v-model="option.name" placeholder="请输入选项" />
+          </span>
+      </div>
+      <button id="reset" @click="reset" >重置</button>
+      <button id="add" @click="add" >增加选项</button>
+      <button id="start" @click="start" >开始抽选</button>
+    </form>
+  </div>
+</div>

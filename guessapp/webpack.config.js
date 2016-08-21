@@ -12,22 +12,22 @@ var mime = require('mime-types');
 var glob = require('glob');
 var dnsSync = require('dns-sync');
 var child_process = require('child_process');
+var thematic = require('sass-thematic');
 
-var CI = require('./f2eci');
+var CI = require('./webpack');
 var STATIC_SRC = CI['static-src'];
 var DIST_PATH = CI.dist;
 var ENV = CI.env;
 var VERSION = `${require('./package.json').version}@${child_process.execSync('git rev-parse --short HEAD').toString().trim('\n')}`;
 var URL_PREFIX = CI.urlPrefix;
-var DEV_SERVER_PORT = 5002;
+var DEV_SERVER_PORT = 5001;
 var pageSrcBase = path.join(__dirname, '/src/pages');
 console.log('CI', CI);
-
 
 var config = {
   entry: {
     common: ['vue', 'query-string',
-      'fastclick', 'axios', 'normalize.css', './src/common']
+             'fastclick', 'reqwest', 'normalize.css', './src/common']
   },
   output: {
     filename: '[name].js',
@@ -40,7 +40,9 @@ var config = {
     alias: {
       '@common': path.resolve(__dirname, './src/common'),
       '@component': path.resolve(__dirname, './src/components'),
+      '@mock': path.resolve(__dirname, './src/mock'),
       '@partial': path.resolve(__dirname, './src/partial'),
+      '@module': path.resolve(__dirname, './src/module')
     }
   },
   eslint: {
@@ -61,8 +63,7 @@ var config = {
       },
       {
         test: /\.scss$/,
-        loader: ENV === 'dev' ? ExtractTextPlugin.extract('style', 'css?sourceMap&-autoprefixer!postcss!resolve-url?sourceMap!sass?sourceMap', {publicPath: './'})
-            : ExtractTextPlugin.extract('style', 'css?sourceMap&-autoprefixer!postcss!resolve-url?sourceMap!sass-theme-template', {publicPath: './'})
+        loader: ExtractTextPlugin.extract('style', 'css?sourceMap&-autoprefixer!postcss!resolve-url?sourceMap!sass?sourceMap', {publicPath: './'})
       },
       {
         test: /\.js$/,
@@ -116,6 +117,33 @@ var config = {
       filename: '[name].js',
       minChunks: Infinity,
     }),
+
+    thematic.webpack({
+      varsFile: './src/common/style/mt/_var.scss',
+      includePaths: ['./src/common/style/mt'],
+      cwd: __dirname,
+      output: [{
+        includeFiles: ['./src/common/main.scss'].concat(glob.sync('./src/pages/**/*.scss')),
+        css: {
+          filename: 'theme-mt.css',
+          header: '.mt {',
+          footer: '}'
+        }
+      }]
+    }),
+
+    function() {
+      this.plugin('done', function(stats) {
+        if (ENV !== 'dev') {
+          var mtCSS = fs.readFileSync(path.join(__dirname, DIST_PATH, STATIC_SRC, 'theme-mt.css'), {encoding: 'utf8'});
+          fs.readdirSync(pageSrcBase).filter(dir => fs.statSync(path.join(pageSrcBase, dir)).isDirectory()).forEach(dir => {
+            var mainCSSPath = path.join(__dirname, DIST_PATH, STATIC_SRC, dir + '.css');
+            var mainCSS = fs.readFileSync(mainCSSPath, {encoding: 'utf8'});
+            fs.writeFileSync(mainCSSPath, mainCSS + '\n' + mtCSS);
+          });
+        }
+      })
+    }
   ],
   devtool: '#source-map',
   devServer: {
@@ -127,7 +155,7 @@ var config = {
 
       app.get('/api/hello', function (req, res, next) {
         //setTimeout(() => {
-        res.send('OK');
+          res.send('OK');
         //}, 5000);
       });
 
@@ -191,72 +219,12 @@ fs.readdirSync(pageSrcBase).filter(dir => fs.statSync(path.join(pageSrcBase, dir
 /**
  * Environment Specific Configuration
  */
-if (ENV === 'dev') {
-  var thematic = require('sass-thematic');
-  config.plugins.push(thematic.webpack({
-    varsFile: './src/common/style/mt/_var.scss',
-    includePaths: ['./src/common/style/mt'],
-    cwd: __dirname,
-    output: [{
-      includeFiles: ['./src/common/main.scss'].concat(glob.sync('./src/pages/**/*.scss')).concat(glob.sync('./src/components/**/*.scss')),
-      css: {
-        filename: 'theme-mt.css',
-        header: '.mt {',
-        footer: '}'
-      }
-    }]
-  }));
-}
-
 if (ENV !== 'dev') {
   config.plugins.unshift(new CleanWebpackPlugin(['dist'], {
     root: __dirname,
     verbose: true,
     dry: false
   }));
-
-  var SassThemeTemplate = require('sass-theme-template-loader');
-
-  config.plugins.push(new SassThemeTemplate({
-    cwd: __dirname,
-    includePaths: ['./src/common/style/dp'],
-    varsFile: './src/common/style/dp/_var.scss',
-    filename: '[name].css.erb',
-    output: true, // << or a dirpath to write out templates
-    templateOpen: '$',
-    templateClose: '',
-    templateSnakeCase: false,
-    templateFormat: false
-  }),
-
-  function() {
-    function extractMTTheme(templateFileName) {
-      var cssData = require('fs').readFileSync(templateFileName, {encoding: 'utf8'});
-      cssData = '.mt {\n' + cssData + '\n}';
-      cssData = cssData.replace(/\/\*# sourceMappingURL=.*\*\//, '');
-      var thematic = require('sass-thematic');
-      var css = thematic.renderThemeCSSSync({
-        data: cssData,
-        varsFile: './src/common/style/mt/_var.scss',
-        themeFile: './src/common/style/mt/_var.scss',
-        //includePaths: ['./src/common/style/mt'],
-        cwd: __dirname,
-      });
-
-      return css;
-    }
-
-    this.plugin('done', function(stats) {
-      if (ENV !== 'dev') {
-        ['common'].concat(fs.readdirSync(pageSrcBase).filter(dir => fs.statSync(path.join(pageSrcBase, dir)).isDirectory())).forEach(dir => {
-          var mainCSSPath = path.join(__dirname, DIST_PATH, STATIC_SRC, dir + '.css');
-          var mainCSS = fs.readFileSync(mainCSSPath, {encoding: 'utf8'});
-          var mtCSS = extractMTTheme(path.join(__dirname, DIST_PATH, STATIC_SRC, dir + '.css.erb'));
-          fs.writeFileSync(mainCSSPath, mainCSS + '\n' + mtCSS);
-        });
-      }
-    })
-  });
 
   config.output.publicPath = url.resolve(URL_PREFIX, STATIC_SRC) + '/';
   if (ENV === 'product') {

@@ -8,7 +8,23 @@ var About = Vue.extend({
 
   data() {
     return {
-      
+      links: [
+        {
+          name: "地图模式",
+          link: "/index/duomap",
+          icon: "fa-globe"
+        },
+        {
+          name: "好友模式",
+          link: "/index/duofriend",
+          icon: "fa-gift"
+        },
+        {
+          name: "随机模式",
+          link: "/index/duohot",
+          icon: "fa-random"
+        },
+      ]
     }
   },
   methods: {

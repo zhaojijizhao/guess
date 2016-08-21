@@ -3,34 +3,34 @@ webpackJsonp([2],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(139);
+	module.exports = __webpack_require__(127);
 
 
 /***/ },
 
-/***/ 139:
+/***/ 127:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Vue) {'use strict';
 	
-	var _promise = __webpack_require__(45);
+	var _promise = __webpack_require__(14);
 	
 	var _promise2 = _interopRequireDefault(_promise);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(140);
-	__webpack_require__(145);
-	__webpack_require__(149);
+	__webpack_require__(128);
+	__webpack_require__(133);
+	__webpack_require__(137);
 	var queryString = __webpack_require__(3);
-	var range = __webpack_require__(151);
+	var range = __webpack_require__(139);
 	
-	var _require = __webpack_require__(33);
+	var _require = __webpack_require__(13);
 	
 	var utils = _require.utils;
 	var api = _require.api;
 	
-	__webpack_require__(165);
+	__webpack_require__(153);
 	
 	// reqwest('/api/hello').then(function (resp) {
 	//   console.log('AJAX', resp);
@@ -59,7 +59,7 @@ webpackJsonp([2],{
 	});
 	
 	var RootComponent = Vue.extend({
-	  template: __webpack_require__(168),
+	  template: __webpack_require__(156),
 	  data: function data() {
 	    return {
 	      items: [{ text: 'Item 1' }, { text: 'Item 2' }, { text: 'Item 3' }],
@@ -108,13 +108,13 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 140:
+/***/ 128:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Vue) {'use strict';
 	
-	__webpack_require__(141);
-	__webpack_require__(143);
+	__webpack_require__(129);
+	__webpack_require__(131);
 	
 	Vue.component('pull-refresh', {
 	  template: '\n  <div v-el:wrapper class="dp-pull-refresh">\n    <div class="dp-pull-refresh__indicator">\n      <div :style="pullRefreshTipStyle">\n        <i class="fa" :class="[canRefresh ? \'fa-long-arrow-up\' : \'fa-long-arrow-down\']"></i>\n      </div>\n    </div>\n    <div v-if="isRefreshing" :style="loadingStyle">\n      <div class="dp-loading dp-loading--pull-refresh">\n        <div class="dp-loading-leaf dp-loading-leaf-0"></div>\n        <div class="dp-loading-leaf dp-loading-leaf-1"></div>\n        <div class="dp-loading-leaf dp-loading-leaf-2"></div>\n        <div class="dp-loading-leaf dp-loading-leaf-3"></div>\n        <div class="dp-loading-leaf dp-loading-leaf-4"></div>\n        <div class="dp-loading-leaf dp-loading-leaf-5"></div>\n        <div class="dp-loading-leaf dp-loading-leaf-6"></div>\n        <div class="dp-loading-leaf dp-loading-leaf-7"></div>\n        <div class="dp-loading-leaf dp-loading-leaf-8"></div>\n        <div class="dp-loading-leaf dp-loading-leaf-9"></div>\n        <div class="dp-loading-leaf dp-loading-leaf-10"></div>\n        <div class="dp-loading-leaf dp-loading-leaf-11"></div>\n      </div>\n    </div>\n    <div class="dp-pull-refresh__content" v-el:main  :style="mainStyle"\n      @touchstart="onTouchStart" @touchmove="onTouchMove" @touchend="onTouchEnd">\n      <slot></slot>\n    </div>\n  </div>\n  ',
@@ -196,16 +196,16 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 141:
+/***/ 129:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(142);
+	var content = __webpack_require__(130);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(32)(content, {});
+	var update = __webpack_require__(12)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -223,10 +223,10 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 142:
+/***/ 130:
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(31)();
+	exports = module.exports = __webpack_require__(11)();
 	// imports
 	
 	
@@ -238,16 +238,16 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 143:
+/***/ 131:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(144);
+	var content = __webpack_require__(132);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(32)(content, {});
+	var update = __webpack_require__(12)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -265,10 +265,10 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 144:
+/***/ 132:
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(31)();
+	exports = module.exports = __webpack_require__(11)();
 	// imports
 	
 	
@@ -280,13 +280,13 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 145:
+/***/ 133:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Vue) {'use strict';
 	
-	__webpack_require__(146);
-	var Hammer = __webpack_require__(148);
+	__webpack_require__(134);
+	var Hammer = __webpack_require__(136);
 	
 	var TRANSFORM = '-webkit-transform .3s ease-out';
 	var INTERVAL = 3000;
@@ -480,16 +480,16 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 146:
+/***/ 134:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(147);
+	var content = __webpack_require__(135);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(32)(content, {});
+	var update = __webpack_require__(12)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -507,10 +507,10 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 147:
+/***/ 135:
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(31)();
+	exports = module.exports = __webpack_require__(11)();
 	// imports
 	
 	
@@ -522,7 +522,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 148:
+/***/ 136:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*! Hammer.JS - v2.0.7 - 2016-04-22
@@ -3172,16 +3172,16 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 149:
+/***/ 137:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(150);
+	var content = __webpack_require__(138);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(32)(content, {});
+	var update = __webpack_require__(12)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -3199,10 +3199,10 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 150:
+/***/ 138:
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(31)();
+	exports = module.exports = __webpack_require__(11)();
 	// imports
 	
 	
@@ -3214,10 +3214,10 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 151:
+/***/ 139:
 /***/ function(module, exports, __webpack_require__) {
 
-	var createRange = __webpack_require__(152);
+	var createRange = __webpack_require__(140);
 	
 	/**
 	 * Creates an array of numbers (positive and/or negative) progressing from
@@ -3267,12 +3267,12 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 152:
+/***/ 140:
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseRange = __webpack_require__(153),
-	    isIterateeCall = __webpack_require__(154),
-	    toFinite = __webpack_require__(161);
+	var baseRange = __webpack_require__(141),
+	    isIterateeCall = __webpack_require__(142),
+	    toFinite = __webpack_require__(149);
 	
 	/**
 	 * Creates a `_.range` or `_.rangeRight` function.
@@ -3304,7 +3304,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 153:
+/***/ 141:
 /***/ function(module, exports) {
 
 	/* Built-in method references for those with the same name as other `lodash` methods. */
@@ -3339,13 +3339,13 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 154:
+/***/ 142:
 /***/ function(module, exports, __webpack_require__) {
 
-	var eq = __webpack_require__(155),
-	    isArrayLike = __webpack_require__(156),
-	    isIndex = __webpack_require__(160),
-	    isObject = __webpack_require__(158);
+	var eq = __webpack_require__(143),
+	    isArrayLike = __webpack_require__(144),
+	    isIndex = __webpack_require__(148),
+	    isObject = __webpack_require__(146);
 	
 	/**
 	 * Checks if the given arguments are from an iteratee call.
@@ -3376,7 +3376,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 155:
+/***/ 143:
 /***/ function(module, exports) {
 
 	/**
@@ -3420,11 +3420,11 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 156:
+/***/ 144:
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(157),
-	    isLength = __webpack_require__(159);
+	var isFunction = __webpack_require__(145),
+	    isLength = __webpack_require__(147);
 	
 	/**
 	 * Checks if `value` is array-like. A value is considered array-like if it's
@@ -3460,10 +3460,10 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 157:
+/***/ 145:
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(158);
+	var isObject = __webpack_require__(146);
 	
 	/** `Object#toString` result references. */
 	var funcTag = '[object Function]',
@@ -3508,7 +3508,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 158:
+/***/ 146:
 /***/ function(module, exports) {
 
 	/**
@@ -3546,7 +3546,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 159:
+/***/ 147:
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
@@ -3588,7 +3588,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 160:
+/***/ 148:
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
@@ -3617,10 +3617,10 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 161:
+/***/ 149:
 /***/ function(module, exports, __webpack_require__) {
 
-	var toNumber = __webpack_require__(162);
+	var toNumber = __webpack_require__(150);
 	
 	/** Used as references for various `Number` constants. */
 	var INFINITY = 1 / 0,
@@ -3666,11 +3666,11 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 162:
+/***/ 150:
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(158),
-	    isSymbol = __webpack_require__(163);
+	var isObject = __webpack_require__(146),
+	    isSymbol = __webpack_require__(151);
 	
 	/** Used as references for various `Number` constants. */
 	var NAN = 0 / 0;
@@ -3739,10 +3739,10 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 163:
+/***/ 151:
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObjectLike = __webpack_require__(164);
+	var isObjectLike = __webpack_require__(152);
 	
 	/** `Object#toString` result references. */
 	var symbolTag = '[object Symbol]';
@@ -3784,7 +3784,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 164:
+/***/ 152:
 /***/ function(module, exports) {
 
 	/**
@@ -3820,7 +3820,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 165:
+/***/ 153:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Vue) {'use strict';
@@ -3831,7 +3831,7 @@ webpackJsonp([2],{
 	 * @columns column count, if not given, it's totally flexible
 	 *
 	 */
-	__webpack_require__(166);
+	__webpack_require__(154);
 	Vue.component('flex-grid', {
 	  props: {
 	    columns: Number
@@ -3879,16 +3879,16 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 166:
+/***/ 154:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(167);
+	var content = __webpack_require__(155);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(32)(content, {});
+	var update = __webpack_require__(12)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -3906,10 +3906,10 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 167:
+/***/ 155:
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(31)();
+	exports = module.exports = __webpack_require__(11)();
 	// imports
 	
 	
@@ -3921,7 +3921,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 168:
+/***/ 156:
 /***/ function(module, exports) {
 
 	module.exports = "<main @touchend=\"onTouchEnd\">\n  <pull-refresh @trigger-refresh=\"onRefresh\">\n    <article>Hello World</article>\n    <button class=\"dp-button test\" @click=\"showUA()\">DPApp</button>\n    <h1>Fixed Column Grid</h1>\n    <flex-grid :columns=\"3\">\n      <flex-item v-for=\"item in items\">{{item.text}}</flex-item>\n    </flex-grid>\n\n    <swiper class=\"my-swiper\">\n      <swiper-item v-for=\"slide in swiperData\">\n        <a class=\"item-template\">\n          <span class=\"title\">{{slide.link}}</span>\n        </a>\n      </swiper-item>\n    </swiper>\n    <div v-for=\"num in nums\">\n      {{num}}\n    </div>\n\n    <h1>Fully Responsive Grid</h1>\n    <!--<flex-grid id=\"grid2\">-->\n      <!--<flex-item>Item 1</flex-item>-->\n      <!--<flex-item>Item 2</flex-item>-->\n      <!--<flex-item>Item 3</flex-item>-->\n      <!--<flex-item>Item 4</flex-item>-->\n      <!--<flex-item>Item 5</flex-item>-->\n      <!--<flex-item>Item 6</flex-item>-->\n      <!--<flex-item>Item 7</flex-item>-->\n      <!--<flex-item>Item 8</flex-item>-->\n    <!--</flex-grid>-->\n  </pull-refresh>\n</main>\n";

@@ -1,0 +1,10 @@
+<div class="guess">
+  <ul class="msg">
+    <li v-for="msg in msgs" v-link="msg.link" :class="msg.type">
+      <p class="title">{{msg.title}}</p>
+      <p class="time">{{msg.time}}</p>
+      <p class="info">{{msg.info}}</p>
+      <p class="link">点击查看</p>
+    </li>
+  </ul>
+</div>

@@ -2,12 +2,12 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>选择</title>
   <meta name="description" content=""/>
   <meta name="format-detection" content="telephone=no">
   <meta name="format-detection" content="email=no"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
   
 </head>
 <body ontouchstart>
@@ -16,3 +16,21 @@
   <script type="text/javascript" src="./static/index.js"></script>
 </body>
 </html>
+<script type="text/javascript">
+  //百度地图API功能
+  function loadJScript() {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "http://api.map.baidu.com/api?v=2.0&ak=syugLtlGQ305shusztaqUaThkQj2247L&callback=init";
+    document.body.appendChild(script);
+  }
+  function init() {
+    var map = new BMap.Map("allmap");            // 创建Map实例
+    var point = new BMap.Point(116.404, 39.915); // 创建点坐标
+    map.centerAndZoom(point, 15);
+    map.enableScrollWheelZoom();                 //启用滚轮放大缩小
+  }
+  window.init = init;
+  window.onload = loadJScript;  //异步加载地图
+</script>
+

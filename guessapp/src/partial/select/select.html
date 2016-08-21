@@ -1,0 +1,22 @@
+<div class="guess">
+  <div class="select">
+    <div class="info">
+      <div>{{select.title}}</div>
+      <div>{{select.time}}</div>
+      <div>{{select.info}}</div>
+      <div>总人数{{select.total}}人，已经参与{{select.attend}}人。</div>
+    </div>
+    <ul class="options">
+      <li v-for="option in options">
+        <span>{{option.num}}</span>
+        <span>{{option.name}}</span>
+        <ul class="chooser">
+          <li v-for="chooser in option.choosers">
+            <img :src="chooser.img" />
+            <p>{{chooser.name}}</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>"

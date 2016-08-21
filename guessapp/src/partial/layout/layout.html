@@ -1,3 +1,22 @@
-<div>
+<div @click="reset">
+  <div class="header">
+    <span class="pit-left" @click="back">返回</span>
+    {{title}}
+    <span class="pit-right" @click="shownav">选项</span>
+    <ul :class="{on: navshow}" @click="shownav">
+      <li v-for="nav in navlist" v-link="nav.link" :class="{on: nav.link == $route.path}" @click="hidenav">
+        <span class="fa" :class="nav.icon"></span>
+        {{nav.name}}
+      </li>
+    </ul>
+  </div>
   <router-view></router-view>
+  <div class="footer">
+    <ul>
+      <li v-for="btn in btnlist" v-link="btn.link">
+        <span class="fa" :class="btn.icon"></span>
+        {{btn.name}}
+      </li>
+    </ul>
+  </div>
 </div>

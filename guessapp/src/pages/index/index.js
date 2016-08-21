@@ -1,5 +1,6 @@
 'use strict';
 require('./index.scss');
+
 var VueRouter = require('vue-router');
 
 //框架
@@ -57,7 +58,7 @@ router.map({
       '/solo': {
         component: Solo//单人模式
       },
-      '／duo': {
+      '/duo': {
         component: Duo//多人模式选择
       },
       '/duomap': {

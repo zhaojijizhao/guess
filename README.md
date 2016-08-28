@@ -1,6 +1,8 @@
 # guess
 guess whole site
 
+mongod --config ./data/mongod.cfg
+
 1.注册
 url:/user/sign,
 type:'post',

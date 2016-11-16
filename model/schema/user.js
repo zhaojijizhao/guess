@@ -2,9 +2,12 @@ var database = require('../database');
 
 //用户信息
 var user = new database.Schema({
-  name:{
-    type:String,
+  num:{
+    type:Number,
     validate:/.+/
+  },
+  name:{
+    type:String
   },
   cell:{
     type:Number,
@@ -16,7 +19,8 @@ var user = new database.Schema({
   },
   point: {
     type:Number,
-    validate:/.+/
+    validate:/.+/,
+    default: 0
   },
   cookie: {
     type:String

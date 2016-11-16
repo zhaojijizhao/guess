@@ -8,7 +8,7 @@ function add(type, content, callback, res){
       res.json(err,500);
     }else{
       if(callback){
-        callback();
+        callback(model);
       }
     }
   });
@@ -63,6 +63,21 @@ function search(type, param, callback, res){
   );
 }
 
+//parsebody
+function parsebody(body){
+  for(var key in body){
+    body[key] = JSON.parse(body[key]);
+  }
+  return body;
+}
+
+//自动运算num
+function getnum(content){
+  return Math.max(content.map(function(v, k) {
+    return v.num;
+  }))+1;
+}
+
 //生成cookie
 //发送短信
 //自动运算num
@@ -71,7 +86,9 @@ var utils = {
   add: add,
   remove: remove,
   change: change,
-  search: search
+  search: search,
+  parsebody: parsebody,
+  getnum: getnum
 }
 
 module.exports = utils;

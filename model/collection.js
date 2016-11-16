@@ -5,7 +5,7 @@ var questionSchema = require('./schema/question');
 var guessSchema = require('./schema/guess');
 
 var user = userSchema.user;
-var manager = userSchema.manager;
+var manager = managerSchema.manager;
 var question = questionSchema.question;
 var firsttype = questionSchema.firsttype;
 var secondtype = questionSchema.secondtype;
@@ -21,8 +21,8 @@ var thirdtypeModel = database.mongoose.model('thirdtype',thirdtype);
 var guessModel = database.mongoose.model('guess',guess);
 
 var collection = {
-	user: userModle,
-	manager: managerModel
+	user: userModel,
+	manager: managerModel,
 	question: questionModel,
   firsttype: firsttypeModel,
   secondtype: secondtypeModel,

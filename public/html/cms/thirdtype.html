@@ -1,0 +1,25 @@
+<div class="main">
+  <table>
+    <thead>
+      <tr>
+        <td v-for="(item, index) in tablehead">{{item.name}}</td>
+        <td>操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="thirdtype in thirdtypelist">
+        <td v-for="(item, index) in tablehead">
+          <input type="text" v-model="thirdtype[item.key]" :disabled="!(item.edit && thirdtype.edit)">
+        </td>
+        <td>
+          <a @click="change(thirdtype)">修改</a>
+          <a @click="save(thirdtype)">保存</a>
+          <a @click="remove(thirdtype)">删除</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <a class="btn" @click="newitem">添加新三级分类</a>
+  </div>
+</div>

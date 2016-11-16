@@ -1,0 +1,25 @@
+<div class="main">
+  <table>
+    <thead>
+      <tr>
+        <td v-for="(item, index) in tablehead">{{item.name}}</td>
+        <td>操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="question in questionlist">
+        <td v-for="(item, index) in tablehead">
+          <input type="text" v-model="question[item.key]" :disabled="!(item.edit && question.edit)">
+        </td>
+        <td>
+          <a @click="change(question)">修改</a>
+          <a @click="save(question)">保存</a>
+          <a @click="remove(question)">删除</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <a class="btn" @click="newitem">添加新题目</a>
+  </div>
+</div>

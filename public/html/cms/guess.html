@@ -1,0 +1,25 @@
+<div class="main">
+  <table>
+    <thead>
+      <tr>
+        <td v-for="(item, index) in tablehead">{{item.name}}</td>
+        <td>操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="guess in guesslist">
+        <td v-for="(item, index) in tablehead">
+          <input type="text" v-model="guess[item.key]" :disabled="!(item.edit && guess.edit)">
+        </td>
+        <td>
+          <a @click="change(guess)">修改</a>
+          <a @click="save(guess)">保存</a>
+          <a @click="remove(guess)">删除</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <!-- <a class="btn" @click="newitem">添加新竞猜</a> -->
+  </div>
+</div>

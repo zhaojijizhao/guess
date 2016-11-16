@@ -1,0 +1,25 @@
+<div class="main">
+  <table>
+    <thead>
+      <tr>
+        <td v-for="(item, index) in tablehead">{{item.name}}</td>
+        <td>操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="user in userlist">
+        <td v-for="(item, index) in tablehead">
+          <input type="text" v-model="user[item.key]" :disabled="!(item.edit && user.edit)">
+        </td>
+        <td>
+          <a @click="change(user)">修改</a>
+          <a @click="save(user)">保存</a>
+          <a @click="remove(user)">删除</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <a class="btn" @click="newitem">添加新用户</a>
+  </div>
+</div>

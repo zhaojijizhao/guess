@@ -1,0 +1,25 @@
+<div class="main">
+  <table>
+    <thead>
+      <tr>
+        <td v-for="(item, index) in tablehead">{{item.name}}</td>
+        <td>操作</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="manager in managerlist">
+        <td v-for="(item, index) in tablehead">
+          <input type="text" v-model="manager[item.key]" :disabled="!(item.edit && manager.edit)">
+        </td>
+        <td>
+          <a @click="change(manager)">修改</a>
+          <a @click="save(manager)">保存</a>
+          <a @click="remove(manager)">删除</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <a class="btn" @click="newitem">添加新管理员</a>
+  </div>
+</div>

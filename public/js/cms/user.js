@@ -28,7 +28,8 @@ define(['jquery','underscore','vue','helper','text!/html/cms/user.html'],
             {
               name:"用户创建时间",
               key:"created_at",
-              edit: false
+              edit: false,
+              type: 'date'
             }
           ],
           userlist: []
@@ -57,7 +58,7 @@ define(['jquery','underscore','vue','helper','text!/html/cms/user.html'],
               info: '修改用户',
               data: {user},
               success:function(result){
-                user.edit = false;
+                _this.getList();
               }
             });
           }else{

@@ -18,20 +18,36 @@ define(['jquery','underscore','vue','helper','text!/html/cms/thirdtype.html'],
             {
               name:"所属一级分类",
               key:"firsttypenum",
-              edit: false
+              edit: true,
+              type: 'select',
+              option: 'firsttypelist',
             },
             {
               name:"所属二级分类",
               key:"secondtypenum",
-              edit: true
+              edit: true,
+              type: 'select',
+              option: 'secondtypelist',
+              change: function(item, option){
+                return item.firsttypenum == option.firsttypenum;
+              }
             },
             {
               name:"三级分类创建时间",
               key:"created_at",
-              edit: false
+              edit: false,
+              type: 'date'
             }
           ],
-          thirdtypelist: []
+          thirdtypelist: [],
+          options: {
+            secondtypelist: [],
+            firsttypelist: []
+          },
+          filter: {
+            firsttype: null,
+            secondtype: null
+          }
         }
       },
       methods: {
@@ -45,6 +61,40 @@ define(['jquery','underscore','vue','helper','text!/html/cms/thirdtype.html'],
             }
           });
         },
+        getOptionList: function(){
+          var _this = this;
+          Helper.ajax({
+            url:'/manage/firsttype',
+            info: '获取选项',
+            success:function(result){
+              _this.options.firsttypelist = result;
+            }
+          });
+          Helper.ajax({
+            url:'/manage/secondtype',
+            info: '获取选项',
+            success:function(result){
+              _this.options.secondtypelist = result;
+            }
+          });
+        },
+        isshowfiltersecond: function(option){
+          return option.firsttypenum == this.filter.firsttype;
+        },
+        isshow: function(option) {
+          var result = true;
+          if(this.filter.firsttype && this.filter.firsttype!=0){
+            if(option.firsttypenum != this.filter.firsttype) {
+              result = false;
+            }
+          }
+          if(this.filter.secondtype && this.filter.secondtype!=0){
+            if(option.secondtypenum != this.filter.secondtype) {
+              result = false;
+            }
+          }
+          return result;
+        },
         change: function(thirdtype){
           thirdtype.edit = true;
           this.$set(thirdtype);
@@ -57,7 +107,7 @@ define(['jquery','underscore','vue','helper','text!/html/cms/thirdtype.html'],
               info: '修改三级分类',
               data: {thirdtype},
               success:function(result){
-                thirdtype.edit = false;
+                _this.getList();
               }
             });
           }else{
@@ -87,11 +137,16 @@ define(['jquery','underscore','vue','helper','text!/html/cms/thirdtype.html'],
           });
         },
         newitem: function(){
-          this.thirdtypelist.push({edit:true});
+          this.thirdtypelist.push({
+            edit:true,
+            firsttypenum: this.filter.firsttype,
+            secondtypenum: this.filter.secondtype
+          });
         }
       },
       mounted: function(){
         this.getList();
+        this.getOptionList();
       }
     });
     return thirdtype;

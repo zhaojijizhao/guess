@@ -1,0 +1,86 @@
+<div class="nav">
+  <div class="link-block">
+    <i class="link-btn icon"></i>
+    <div class="mask"></div>
+    <div class="links">
+      <a href="./guessmenu.html">热门竞猜</a>
+      <a href="./shopmenu.html">精彩生活</a>
+      <a href="#">账户信息</a>
+    </div>
+  </div>
+  <div class="title">一起竞猜吧</div>
+  <a class="profile-link" href="#"><i class="icon"></i></a>
+</div>
+<div class="main" id="main">
+</div>
+
+<script type="text/template">
+  <div class="detail">
+    <div class="detail-info">
+      <input type="hidden" id="detailid" value="<%=data.id%>" />
+      <div class="first"><%=data.name%></div>
+      <div class="second">第<span><%=data.round%></span>轮</div>
+      <div class="third"><%=new Date(data.updated_at).toLocaleDateString()%></div>
+    </div>
+    <ul class="detail-data">
+      <li>
+        <div class="tip">单次所需点数</div>
+        <div class="number"><%=data.perpoint%></div>
+      </li>
+      <li>
+        <div class="tip">有效人次</div>
+        <div class="number"><%=data.time_limits%></div>
+      </li>
+      <li>
+        <div class="tip">奖池总点数</div>
+        <div class="number"><%=data.total_points%></div>
+      </li>
+    </ul>
+    <ul class="detail-state">
+      <li>
+        <div class="label">状态</div>
+        <div class="content"><%=data.status%></div>
+      </li>
+      <li>
+        <div class="label">截止时间</div>
+        <div class="content"><%=new Date(data.expired_at).toLocaleDateString()%></div>
+      </li>
+    </ul>
+    <div class="detail-intro">
+      <div class="intro">
+        <%=data.intro%>
+      </div>
+      <div class="recent">
+        <%=data.recent%>
+      </div>
+    </div>
+    <form class="detail-guess" id="J_guess">
+      <div class="option">
+        <div class="title"><%=data.question%></div>
+        <div class="choose">
+          <i class="left-btn icon"></i>
+          <i class="right-btn icon"></i>
+          <div class="area" id="J_area">
+            <ul>
+              <%_.each(data.options,function(v,k){%>
+                <li data-id="<%=v.id%>" class="<%if(k===0){%>on<%}%>" ><%=v.name%></li>
+              <%})%>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="pit">
+        <span class="tip">选择您竞猜的次数</span>
+        <div class="pit-input">
+          <i class="minus-btn icon" id="J_minus"></i>
+          <i class="add-btn icon" id="J_add"></i>
+          <input type="tel" id="pit" value="1" />
+        </div>
+      </div>
+      <button class="submit" id="J_submit">
+        <i class="right-btn icon"></i>
+        <span>确认</span>
+      </button>
+    </form>
+  </div>
+</script>

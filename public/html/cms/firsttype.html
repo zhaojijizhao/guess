@@ -9,7 +9,12 @@
     <tbody>
       <tr v-for="firsttype in firsttypelist">
         <td v-for="(item, index) in tablehead">
-          <input type="text" v-model="firsttype[item.key]" :disabled="!(item.edit && firsttype.edit)">
+          <template v-if="!item.type">
+            <input type="text" v-model="firsttype[item.key]" :disabled="!(item.edit && firsttype.edit)">
+          </template>
+          <template v-if="item.type=='date'">
+            <span>{{new Date(firsttype[item.key]||new Date()).toLocaleString()}}</span>
+          </template>
         </td>
         <td>
           <a @click="change(firsttype)">修改</a>

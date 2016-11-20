@@ -9,7 +9,12 @@
     <tbody>
       <tr v-for="manager in managerlist">
         <td v-for="(item, index) in tablehead">
-          <input type="text" v-model="manager[item.key]" :disabled="!(item.edit && manager.edit)">
+          <template v-if="!item.type">
+            <input type="text" v-model="manager[item.key]" :disabled="!(item.edit && manager.edit)">
+          </template>
+          <template v-if="item.type=='date'">
+            <span>{{new Date(manager[item.key]||new Date()).toLocaleString()}}</span>
+          </template>
         </td>
         <td>
           <a @click="change(manager)">修改</a>

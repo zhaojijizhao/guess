@@ -73,9 +73,10 @@ function parsebody(body){
 
 //自动运算num
 function getnum(content){
-  return Math.max(content.map(function(v, k) {
-    return v.num;
-  }))+1;
+  var arr = content.map(function(v, k) {
+    return v.num || 0;
+  });
+  return Math.max(...arr)+1;
 }
 
 //生成cookie

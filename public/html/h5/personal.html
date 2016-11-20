@@ -1,0 +1,31 @@
+<div class="nav">
+  <div class="link-block">
+    <i class="link-btn icon"></i>
+    <div class="mask"></div>
+    <div class="links">
+      <a href="./guessmenu.html">热门竞猜</a>
+      <a href="./shopmenu.html">精彩生活</a>
+      <a href="#">账户信息</a>
+    </div>
+  </div>
+  <div class="title">一起竞猜吧</div>
+  <a class="profile-link" href="#"><i class="icon"></i></a>
+</div>
+<div class="main" id="main">
+</div>
+
+<script type="text/template">
+<div class="person-list">
+  <div class="head">
+    用户：<%=cell%>
+  </div>
+  <%_.each(list,function(v,k){%>
+    <div class="item">
+      <p><label>竞猜名称</label><%=v.name%></p>
+      <p><label>竞猜选项</label><%=v.option%></p>
+      <p><label>竞猜日期</label><%=v.date%></p>
+      <p><label>竞猜数量</label><%=v.num%></p>
+    </div>
+  <%})%>
+</div>
+</script>

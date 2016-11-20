@@ -18,15 +18,24 @@ define(['jquery','underscore','vue','helper','text!/html/cms/secondtype.html'],
             {
               name:"所属一级分类",
               key:"firsttypenum",
-              edit: true
+              edit: true,
+              type: "select",
+              option: 'firsttypelist'
             },
             {
               name:"二级分类创建时间",
               key:"created_at",
-              edit: false
+              edit: false,
+              type: "date"
             }
           ],
-          secondtypelist: []
+          secondtypelist: [],
+          options: {
+            firsttypelist: []
+          },
+          filter: {
+            firsttype: null
+          }
         }
       },
       methods: {
@@ -40,6 +49,27 @@ define(['jquery','underscore','vue','helper','text!/html/cms/secondtype.html'],
             }
           });
         },
+        getOptionList: function(){
+          var _this = this;
+          Helper.ajax({
+            url:'/manage/firsttype',
+            info: '获取选项',
+            success:function(result){
+              _this.options.firsttypelist = result;
+            }
+          });
+        },
+        isshow: function(secondtype) {
+          var result = true;
+          if(this.filter.firsttype && this.filter.firsttype!=0){
+            if(secondtype.firsttypenum == this.filter.firsttype) {
+              result = true;
+            } else {
+              result = false;
+            }
+          }
+          return result;
+        },
         change: function(secondtype){
           secondtype.edit = true;
           this.$set(secondtype);
@@ -52,7 +82,7 @@ define(['jquery','underscore','vue','helper','text!/html/cms/secondtype.html'],
               info: '修改二级分类',
               data: {secondtype},
               success:function(result){
-                secondtype.edit = false;
+                _this.getList();
               }
             });
           }else{
@@ -82,10 +112,14 @@ define(['jquery','underscore','vue','helper','text!/html/cms/secondtype.html'],
           });
         },
         newitem: function(){
-          this.secondtypelist.push({edit:true});
+          this.secondtypelist.push({
+            edit:true,
+            firsttypenum:this.filter.firsttype
+          });
         }
       },
       mounted: function(){
+        this.getOptionList();
         this.getList();
       }
     });

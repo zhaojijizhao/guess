@@ -43,11 +43,11 @@ var thirdtype = new database.Schema({
     validate:/.+/
   },
   firsttypenum:{
-    type:Number,
+    type: Number,
     validate:/.+/
   },
   secondtypenum:{
-    type:Number,
+    type: Number,
     validate:/.+/
   },
   name:{
@@ -129,7 +129,7 @@ var question = new database.Schema({
 var questionSchema = {
   firsttype: firsttype,
   secondtype: secondtype,
-  thirdtype: secondtype,
+  thirdtype: thirdtype,
   question: question
 };
 

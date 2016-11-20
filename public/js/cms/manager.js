@@ -28,7 +28,8 @@ define(['jquery','underscore','vue','helper','text!/html/cms/manager.html'],
             {
               name:"管理员创建时间",
               key:"created_at",
-              edit: false
+              edit: false,
+              type: 'date'
             }
           ],
           managerlist: []
@@ -57,7 +58,7 @@ define(['jquery','underscore','vue','helper','text!/html/cms/manager.html'],
               info: '修改管理员',
               data: {manager},
               success:function(result){
-                manager.edit = false;
+                _this.getList();
               }
             });
           }else{

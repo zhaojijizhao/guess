@@ -18,7 +18,8 @@ define(['jquery','underscore','vue','helper','text!/html/cms/firsttype.html'],
             {
               name:"一级分类创建时间",
               key:"created_at",
-              edit: false
+              edit: false,
+              type: 'date'
             }
           ],
           firsttypelist: []

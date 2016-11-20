@@ -1,4 +1,12 @@
 <div class="main">
+  <div>
+    <label>一级分类</label>
+    <select v-model="filter.firsttype">
+      <option value="0">请选择</option>
+      <option v-for="option in options.firsttypelist" :value="option.num"  >{{option.name}}</option>
+    </select>
+  </div>
+  <br/>
   <table>
     <thead>
       <tr>
@@ -7,9 +15,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="secondtype in secondtypelist">
+      <tr v-for="secondtype in secondtypelist" v-show="isshow(secondtype)">
         <td v-for="(item, index) in tablehead">
-          <input type="text" v-model="secondtype[item.key]" :disabled="!(item.edit && secondtype.edit)">
+          <template v-if="!item.type">
+            <input type="text" v-model="secondtype[item.key]" :disabled="!(item.edit && secondtype.edit)">
+          </template>
+          <template v-if="item.type=='select'">
+            <select v-model="secondtype[item.key]" :disabled="!(item.edit && secondtype.edit)">
+              <option v-for="(v, k) in options[item.option]" :value="v.num">{{v.name}}</option>
+            </select>
+          </template>
+          <template v-if="item.type=='date'">
+            <span>{{new Date(secondtype[item.key]||new Date()).toLocaleString()}}</span>
+          </template>
         </td>
         <td>
           <a @click="change(secondtype)">修改</a>

@@ -58,7 +58,6 @@ router.post('/user/add', function(req, res, next) {
     if(i > -1){
       res.json({msg:'电话号码已存在'}, 500);
     }
-    console.log(utils.getnum(users));
     body.user.num = utils.getnum(users);
     utils.add('user', body.user, function(result){
       res.json({});
@@ -68,7 +67,6 @@ router.post('/user/add', function(req, res, next) {
 
 //用户删除
 router.post('/user/remove', function(req, res, next) {
-  console.log(utils.parsebody);
   var body = utils.parsebody(req.body);
   utils.remove('user', body.user._id, function(result){
     res.json({});
@@ -160,11 +158,11 @@ router.post('/thirdtype', function(req, res, next) {
 
 //三级类型新增
 router.post('/thirdtype/add', function(req, res, next) {
-  var body = utils.parsebody(req.body)
+  var body = utils.parsebody(req.body);
   utils.search('thirdtype', {}, function(thirdtypes){
     body.thirdtype.num = utils.getnum(thirdtypes);
     utils.add('thirdtype', body.thirdtype, function(result){
-      res.json({});
+      res.json({result});
     }, res);
   }, res);
 });

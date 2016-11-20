@@ -61,13 +61,17 @@ table tbody tr:nth-child(even) td{
 table tbody tr:nth-child(odd) td{
   background-color: #fff;
 }
-input{
+table td input{
   border: 1px solid #35a2ff;
   border-radius: 3px;
   background-color: #fff;
   line-height: 24px;
   height: 100%;
   width: 100%;
+}
+table td span{
+  font-size: 12px;
+  line-height: 24px;
 }
 input[disabled]{
   border: 1px solid transparent;
@@ -85,4 +89,33 @@ input[disabled]{
 }
 .btn:hover{
   background-color: #66b7fc;
+}
+.detailul {
+  width: 500px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.detailul li{
+  vertical-align: top;
+  line-height: 42px;
+  border-bottom: 1px solid #ccc;
+}
+.detailul li label{
+  display:inline-block;
+  width:120px;
+  vertical-align: top;
+}
+.detailul li>span{
+  display: inline-block;
+}
+.detailul li  input{
+  width: 200px;
+  line-height: 24px;
+}
+.detailul li textarea{
+  border: 1px solid #ccc;
+  resize: vertical;
+  width: 200px;
+  height: 120px;
 }

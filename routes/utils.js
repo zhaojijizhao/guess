@@ -76,6 +76,7 @@ function getnum(content){
   var arr = content.map(function(v, k) {
     return v.num || 0;
   });
+  arr.push(0);
   return Math.max(...arr)+1;
 }
 

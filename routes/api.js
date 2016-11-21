@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var collection = require('../model/collection');
+var utils = require('./utils');
 
 /* api listing. */
 
@@ -34,5 +35,33 @@ router.post('/user', function(req, res, next) {
 		}
 	});
 });
+
+//竞猜主目录
+router.post('/guessmenu', function(req, res, next) {
+	utils.search('firsttype', {}, function(result){
+    res.json(result);
+  }, res);
+});
+
+//竞猜一级目录
+router.post('/guessmenu/:id', function(req, res, next) {
+	utils.search('firsttype', {firsttype}, function(result){
+    res.json(result);
+  }, res);
+});
+
+//竞猜二级目录
+router.post('/guesslist/:id', function(req, res, next) {
+});
+
+//竞猜详情页接口
+router.post('/guessdetail/:id', function(req, res, next) {
+});
+
+//竞猜接口
+router.post('/guess/:id', function(req, res, next) {
+});
+
+//个人资料接口
 
 module.exports = router;

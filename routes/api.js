@@ -37,29 +37,39 @@ router.post('/user', function(req, res, next) {
 });
 
 //竞猜主目录
-router.post('/guessmenu', function(req, res, next) {
-	utils.search('firsttype', {}, function(result){
-    res.json(result);
-  }, res);
-});
-
 //竞猜一级目录
-router.post('/guessmenu/:id', function(req, res, next) {
-	utils.search('firsttype', {firsttype}, function(result){
-    res.json(result);
-  }, res);
+router.post('/guessmenu', function(req, res, next) {
+	var body = utils.parsebody(req.body);
+	if(body.id){
+		utils.search('secondtype', {firsttypenum: body.id}, function(result){
+	    res.json(result);
+	  }, res);
+	}else{
+		utils.search('firsttype', {}, function(result){
+	    res.json(result);
+	  }, res);
+	}
 });
 
 //竞猜二级目录
-router.post('/guesslist/:id', function(req, res, next) {
+router.post('/guesslist', function(req, res, next) {
+	var body = utils.parsebody(req.body);
+	utils.search('thirdtype', {secondtypenum: body.id}, function(result){
+    res.json(result);
+  }, res);
 });
 
 //竞猜详情页接口
-router.post('/guessdetail/:id', function(req, res, next) {
+router.post('/guessdetail', function(req, res, next) {
+	var body = utils.parsebody(req.body);
+	utils.search('question', {num: body.id}, function(result){
+    res.json(result);
+  }, res);
 });
 
 //竞猜接口
-router.post('/guess/:id', function(req, res, next) {
+router.post('/guess', function(req, res, next) {
+	var body = utils.parsebody(req.body);
 });
 
 //个人资料接口

@@ -1,7 +1,7 @@
-define(['jquery','underscore','vue','helper','text!/html/h5/guessmenu.html'],
-  function($,_,Vue,Helper,guessmenuTpl){
-    var guessMenu = Vue.extend({
-      template: guessmenuTpl,
+define(['jquery','underscore','vue','helper','text!/html/h5/guesssecond.html'],
+  function($,_,Vue,Helper,guesssecondTpl){
+    var guessSecond = Vue.extend({
+      template: guesssecondTpl,
       data: function(){
         return {
           id: 0,
@@ -32,5 +32,5 @@ define(['jquery','underscore','vue','helper','text!/html/h5/guessmenu.html'],
         this.getList();
       }
     });
-    return guessMenu;
+    return guessSecond;
 });

@@ -78,17 +78,6 @@ define(['jquery','underscore'],
       deletelogin:function(){
         localStorage.removeItem("guessuser");
       },
-      initPage:function(){
-        $(".link-block .link-btn").on('click',function(e){
-          $(this).siblings('.links')
-            .add($(this).siblings('.mask'))
-            .addClass('on');
-        });
-        $(".link-block .mask").on('click',function(e){
-          $(this).add($(this).siblings('.links'))
-            .removeClass('on');
-        });
-      },
       ajax: ajax,
       baseUrl:getBaseUrl,
       queryParam:getQueryParam

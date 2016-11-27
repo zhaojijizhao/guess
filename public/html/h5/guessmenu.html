@@ -1,26 +1,5 @@
-<div class="nav">
-  <div class="link-block">
-    <i class="link-btn icon"></i>
-    <div class="mask"></div>
-    <div class="links">
-      <a href="./guessmenu.html">热门竞猜</a>
-      <a href="./shopmenu.html">精彩生活</a>
-      <a href="#">账户信息</a>
-    </div>
-  </div>
-  <div class="title">一起竞猜吧</div>
-  <a class="profile-link" href="#"><i class="icon"></i></a>
-</div>
-<div class="main" id="main">
-</div>
-<script type="text/template">
 <div class="menu-list">
-  <%_.each(list,function(v,k){%>
-    <%if(!v.pid){%>
-      <a href="<%='./guessmenu.html?id='+v.id%>" <%if(v.off){%>class="disable"<%}%> ><%=v.name%></a>
-    <%}else{%>
-      <a href="<%='./guesslist.html?id='+v.id%>" <%if(v.off){%>class="disable"<%}%> ><%=v.name%></a>
-    <%}%>
-  <%})%>
+  <router-link v-for="(v, k) in list" :to="'guesssecond/'+v.num" :class="{disable:v.off}">
+    {{v.name}}
+  </router-link>
 </div>
-</script>

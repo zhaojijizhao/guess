@@ -70,6 +70,12 @@ router.post('/guessdetail', function(req, res, next) {
 //竞猜接口
 router.post('/guess', function(req, res, next) {
 	var body = utils.parsebody(req.body);
+	utils.search('guess', {}, function(firsttypes){
+    body.guess.num = utils.getnum(firsttypes);
+    utils.add('guess', body.guess, function(result){
+      res.json({});
+    }, res);
+  }, res);
 });
 
 //个人资料接口

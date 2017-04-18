@@ -1,20 +1,44 @@
 <div>
-  <!-- <div class="nav">
-    <div class="link-block">
-      <i class="link-btn icon"></i>
-      <div class="mask"></div>
-      <div class="links">
-        <router-link v-for="nav in navlist" :to="nav.link">
-          {{nav.name}}
-        </router-link>
+  <div class="top">
+    <div class="banner"></div>
+    <div class="slide"></div>
+  </div>
+  <div class="main" id="main">
+    <div class="info">
+      <div class="time"></div>
+      <div>
+        <span>用户名：</span>
+        <span><input /></span>
+        <span>密 码：</span>
+        <span><input /></span>
+        <button class="login-btn">登陆</button>
+        <input type='checkbox' />
+        <a href="">立即注册</a>
+        <a href="">忘记密码</a>
       </div>
     </div>
-    <div class="title">一起竞猜吧</div>
-    <router-link to="" class="profile-link">
-      <i class="icon"></i>
-    </router-link>
-  </div> -->
-  <div class="main" id="main">
-    <router-view></router-view>
+    <div class="content">
+      <ul>
+        <li>本站与竞猜</li>
+        <li>热门竞猜</li>
+        <li>新增竞猜</li>
+        <li>体育赛事</li>
+        <li>文化娱乐</li>
+        <li>时事经济</li>
+        <li>更多精彩</li>
+      </ul>
+      <router-view></router-view>
+    </div>
+  </div>
+  <div>
+    <div>
+      <a href="">法律声明</a>
+      <a href="">网站地图</a>
+      <a href="">联系我们</a>
+      <a href="">常见问题解答</a>
+    </div>
+    <div>
+      copyright@ucd_china 2013 all reserved 沪ICP备13036270
+    </div>
   </div>
 </div>
